@@ -12,13 +12,30 @@
 </head>
 <body>
   <h1>The Force Game</h1>
-  <img src="assets/darth-vader.png" alt="darth">
-  <button>Pick a letter</button>
 
+  <div class="darth">
+    <img src="assets/darth-vader.png" alt="darth">
+    <div class="parte-do-boneco cabeca"></div>
+    <div class="parte-do-boneco braco-esquerdo"></div>
+    <div class="parte-do-boneco torso"></div>
+    <div class="parte-do-boneco braco-direito"></div>
+    <div class="parte-do-boneco perna-esquerda"></div>
+    <div class="parte-do-boneco perna-direita"></div>
+  </div>
 
+  <p class="word">
+    <spam class="letter">U</spam><spam class="letter">m</spam><spam class="letter">a</spam> <spam class="letter">f</spam>
+  </p>
 
+  <button onclick="play()">PICK A LETTER</button>
 
-
+  // JavaScript
+  <script>
+    function play() {
+      const guess = prompt("Which is your guess?");
+      alert(guess);
+    }
+  </script>
 
 </body>
 </html>
