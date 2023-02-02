@@ -15,27 +15,77 @@
 
   <div class="darth">
     <img src="assets/darth-vader.png" alt="darth">
-    <div class="parte-do-boneco cabeca"></div>
-    <div class="parte-do-boneco braco-esquerdo"></div>
-    <div class="parte-do-boneco torso"></div>
-    <div class="parte-do-boneco braco-direito"></div>
-    <div class="parte-do-boneco perna-esquerda"></div>
-    <div class="parte-do-boneco perna-direita"></div>
+    <div class="darth-parts cabeca"></div>
+    <div class="darth-parts braco-esquerdo"></div>
+    <div class="darth-parts torso"></div>
+    <div class="darth-parts braco-direito"></div>
+    <div class="darth-parts perna-esquerda"></div>
+    <div class="darth-parts perna-direita"></div>
   </div>
 
-  <p class="word">
-    <spam class="letter">U</spam><spam class="letter">m</spam><spam class="letter">a</spam> <spam class="letter">f</spam>
-  </p>
+  <p class="word"></p>
 
   <button onclick="play()">PICK A LETTER</button>
 
-  // JavaScript
+  // JavaScript starts here
   <script>
+    const darthParts = Array.from(
+      document.querySelectorAll(".darth-parts")
+    );
+
+    const allGuesses = []; // Array to store all guesses
+    const word = "uma palavra"; // The word to guess
+    let errors = 0;
+    const maxErrors = 6;
+
     function play() {
-      const guess = prompt("Which is your guess?");
-      alert(guess);
+      if (errors === maxErrors) {
+          alert("You lost!");
+          return;
+      }
+
+      const guess = prompt("What is your guess?");
+
+      if (allGuesses.includes(guess)) {
+        alert("You already guessed that letter!");
+        return;
+      }
+
+      allGuesses.push(guess);
+      // alert(allGuesses);
+
+      if (word.includes(guess)) {
+        // 1. colocar as letras chutadas
+        // 2. colocar underline nas letras não chutadas
+        // 3. colocar espaço onde temos espaço
+        let displayWord = "";
+
+        for (let i = 0; i < word.length; i = i + 1) {
+          if (allGuesses.includes(word[i])) {
+            displayWord = displayWord + '<spam class="letter">' + word[i] + '</spam>';
+          } else if (word[i] === "") {
+            displayWord = displayWord + "";
+          } else {
+            displayWord = displayWord + '<spam class="letter">_</spam>';
+          }
+        }
+        document.querySelector('.word').innerHTML = displayWord;
+      } else {
+        errors = errors + 1;
+
+        for (let i = 0; i < errors; i = i + 1) {
+          darthParts[i].classList.add('visible');
+        }
+
+        if (errors === maxErrors) {
+          alert("You lost!");
+        } else {
+          alert('Wrong, try again!');
+        }
+      }
     }
   </script>
+  // JavaScript ends here
 
 </body>
 </html>
