@@ -13,8 +13,8 @@
 <body>
   <h1>The Force Game</h1>
 
-  <div class="darth">
-    <img src="assets/darth-vader.png" alt="darth">
+  <div class="boneco">
+    <img src="assets/darth-vader.png" class="darth-vader"/>
     <div class="darth-parts cabeca"></div>
     <div class="darth-parts braco-esquerdo"></div>
     <div class="darth-parts torso"></div>
@@ -35,8 +35,8 @@
 
     const allGuesses = []; // Array to store all guesses
     const word = "uma palavra"; // The word to guess
-    let errors = 0;
-    const maxErrors = 6;
+    let errors = 0; // Number of errors
+    const maxErrors = darthParts.length; // Maximum number of errors
 
     function play() {
       if (errors === maxErrors) {

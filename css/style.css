@@ -29,17 +29,18 @@ button {
 }
 
 /* Image Darth*/
-img {
-  width: 300px;
-}
-
-.darth {
+.boneco {
   width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   position: relative;
+}
+
+.darth-vader {
+  width: 300px;
 }
 
 .cabeca {
