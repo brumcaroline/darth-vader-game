@@ -1,13 +1,13 @@
 /* Geral */
 
-/* @font-face {
+@font-face {
   font-family: Starjedi;
-  src: url("assets/Starjedi.ttf");
-} */
+  src: url("/assets/Starjedi.ttf");
+}
 
 h1 {
   color: rgb(223, 135, 34);
-  /* font-family: Starjedi; */
+  font-family: Starjedi;
 }
 
 body {
@@ -97,6 +97,10 @@ button {
   position: absolute;
   right: 0;
   top: 190px;
+}
+
+.invisible {
+  display: none;
 }
 
 /* Letter */
